@@ -1,0 +1,10 @@
+sqlalchemy>=2.0
+psycopg2-binary
+psycopg[binary]>=3.0
+asyncpg
+connectorx
+pandas
+numpy
+matplotlib
+tabulate
+python-dotenv

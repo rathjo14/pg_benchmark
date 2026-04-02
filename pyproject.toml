@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pg-benchmark"
+version = "0.1.0"
+description = "Postgres → pandas pipeline benchmark gauntlet"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy>=2.0",
+    "psycopg2-binary>=2.9",
+    "psycopg[binary]>=3.1",
+    "psycopg-pool>=3.1",
+    "asyncpg>=0.29",
+    "connectorx>=0.3",
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "rich>=13.0",
+    "matplotlib>=3.8",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+cython = [
+    "cython>=3.0",
+]
+
+[project.scripts]
+pg-benchmark = "pg_benchmark.runner:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pg_benchmark"]
+
+[tool.hatch.envs.default]
+type = "pip"
